@@ -25,7 +25,7 @@ const RTK_SLIM_CODEX: &str = include_str!("../../hooks/codex/rtk-awareness.md");
 /// Template written by `rtk init` when no filters.toml exists yet.
 const FILTERS_TEMPLATE: &str = r#"# Project-local RTK filters — commit this file with your repo.
 # Filters here override user-global and built-in filters.
-# Docs: https://github.com/rtk-ai/rtk#custom-filters
+# Docs: https://github.com/hexamind-dev/rtk#custom-filters
 schema_version = 1
 
 # Example: suppress build noise from a custom tool
@@ -41,7 +41,7 @@ schema_version = 1
 /// Template for user-global filters (~/.config/rtk/filters.toml).
 const FILTERS_GLOBAL_TEMPLATE: &str = r#"# User-global RTK filters — apply to all your projects.
 # Project-local .rtk/filters.toml takes precedence over these.
-# Docs: https://github.com/rtk-ai/rtk#custom-filters
+# Docs: https://github.com/hexamind-dev/rtk#custom-filters
 schema_version = 1
 
 # Example: suppress noise from a tool you use everywhere
@@ -284,13 +284,13 @@ pub fn run(
 
     println!();
     let env_disabled = std::env::var("RTK_TELEMETRY_DISABLED").unwrap_or_default() == "1";
-    let config_disabled = matches!(config::telemetry_enabled(), Some(false));
-    if env_disabled || config_disabled {
-        println!("  [info] Anonymous telemetry is disabled");
+    let config_opt_in = matches!(config::telemetry_enabled(), Some(true));
+    if env_disabled || !config_opt_in {
+        println!("  [info] Anonymous telemetry is disabled (opt-in: [telemetry] enabled = true in ~/.config/rtk/config.toml)");
     } else {
-        println!("  [info] Anonymous telemetry is enabled by default (opt-out: RTK_TELEMETRY_DISABLED=1)");
+        println!("  [info] Anonymous telemetry is enabled (opt-out: RTK_TELEMETRY_DISABLED=1 or [telemetry] enabled = false)");
     }
-    println!("  [info] See: https://github.com/rtk-ai/rtk#privacy--telemetry");
+    println!("  [info] See: https://github.com/hexamind-dev/rtk#privacy--telemetry");
 
     Ok(())
 }
@@ -2202,7 +2202,7 @@ fn patch_gemini_settings(
     if patch_mode == PatchMode::Skip {
         println!(
             "\nManual setup needed: add RTK hook to {}\n\
-             See: https://github.com/rtk-ai/rtk#gemini-cli",
+             See: https://github.com/hexamind-dev/rtk#gemini-cli",
             settings_path.display()
         );
         return Ok(());

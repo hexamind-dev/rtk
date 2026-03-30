@@ -94,7 +94,7 @@ pub struct TelemetryConfig {
 
 impl Default for TelemetryConfig {
     fn default() -> Self {
-        Self { enabled: true }
+        Self { enabled: false }
     }
 }
 
@@ -129,7 +129,7 @@ pub fn limits() -> LimitsConfig {
     Config::load().map(|c| c.limits).unwrap_or_default()
 }
 
-/// Check if telemetry is enabled in config. Returns None if config can't be loaded.
+/// Whether telemetry is enabled in config (`[telemetry] enabled`). Returns `None` if the config file cannot be read.
 pub fn telemetry_enabled() -> Option<bool> {
     Config::load().ok().map(|c| c.telemetry.enabled)
 }

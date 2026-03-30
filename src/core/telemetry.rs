@@ -26,8 +26,8 @@ pub fn maybe_ping() {
         return;
     }
 
-    // Check opt-out: config.toml
-    if let Some(false) = config::telemetry_enabled() {
+    // Opt-in only: default is off; ping only when `[telemetry] enabled = true`
+    if config::telemetry_enabled() != Some(true) {
         return;
     }
 
