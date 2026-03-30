@@ -7,8 +7,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/rtk-ai/rtk/actions"><img src="https://github.com/rtk-ai/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
-  <a href="https://github.com/rtk-ai/rtk/releases"><img src="https://img.shields.io/github/v/release/rtk-ai/rtk" alt="Release"></a>
+  <a href="https://github.com/hexamind-dev/rtk/actions"><img src="https://github.com/hexamind-dev/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
+  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/hexamind-dev/rtk" alt="Release"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
   <a href="https://discord.gg/RySmvNF5kF"><img src="https://img.shields.io/discord/1470188214710046894?label=Discord&logo=discord" alt="Discord"></a>
   <a href="https://formulae.brew.sh/formula/rtk"><img src="https://img.shields.io/homebrew/v/rtk" alt="Homebrew"></a>
@@ -28,7 +28,8 @@
   <a href="README_zh.md">中文</a> &bull;
   <a href="README_ja.md">日本語</a> &bull;
   <a href="README_ko.md">한국어</a> &bull;
-  <a href="README_es.md">Espanol</a>
+  <a href="README_es.md">Espanol</a> &bull;
+  <a href="README_ptbr.md">Português (Brasil)</a>
 </p>
 
 ---
@@ -66,7 +67,7 @@ brew install rtk
 ### Quick Install (Linux/macOS)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/hexamind-dev/rtk/refs/heads/master/install.sh | sh
 ```
 
 > Installs to `~/.local/bin`. Add to PATH if needed:
@@ -77,12 +78,12 @@ curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/instal
 ### Cargo
 
 ```bash
-cargo install --git https://github.com/rtk-ai/rtk
+cargo install --git https://github.com/hexamind-dev/rtk
 ```
 
 ### Pre-built Binaries
 
-Download from [releases](https://github.com/rtk-ai/rtk/releases):
+Download from [releases](https://github.com/hexamind-dev/rtk/releases):
 - macOS: `rtk-x86_64-apple-darwin.tar.gz` / `rtk-aarch64-apple-darwin.tar.gz`
 - Linux: `rtk-x86_64-unknown-linux-musl.tar.gz` / `rtk-aarch64-unknown-linux-gnu.tar.gz`
 - Windows: `rtk-x86_64-pc-windows-msvc.zip`
@@ -392,7 +393,7 @@ Plugin in `openclaw/` directory. Uses `before_tool_call` hook, delegates to `rtk
 
 ### Mistral Vibe (planned)
 
-Blocked on upstream BeforeToolCallback support ([mistral-vibe#531](https://github.com/mistralai/mistral-vibe/issues/531), [PR #533](https://github.com/mistralai/mistral-vibe/pull/533)). Tracked in [#800](https://github.com/rtk-ai/rtk/issues/800).
+Blocked on upstream BeforeToolCallback support ([mistral-vibe#531](https://github.com/mistralai/mistral-vibe/issues/531), [PR #533](https://github.com/mistralai/mistral-vibe/pull/533)). Tracked in [#800](https://github.com/hexamind-dev/rtk/issues/800).
 
 ### Commands Rewritten
 
@@ -465,16 +466,16 @@ brew uninstall rtk           # If installed via Homebrew
 ## Documentation
 
 - **[TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** - Fix common issues
-- **[INSTALL.md](INSTALL.md)** - Detailed installation guide
+- **[INSTALL.md](INSTALL.md)** - Detailed installation guide · [Português (Brasil)](INSTALL_ptbr.md)
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical architecture
 - **[SECURITY.md](SECURITY.md)** - Security policy and PR review process
 - **[AUDIT_GUIDE.md](docs/AUDIT_GUIDE.md)** - Token savings analytics guide
 
 ## Privacy & Telemetry
 
-RTK collects **anonymous, aggregate usage metrics** once per day, **enabled by default**. This helps prioritize development. See opt-out options below.
+RTK can send **anonymous, aggregate usage metrics** at most once per day **only if you opt in** (`[telemetry] enabled = true` in `~/.config/rtk/config.toml`) and the binary was built with a telemetry endpoint (`RTK_TELEMETRY_URL` at compile time). **Default is off.**
 
-**What is collected:**
+**What is collected** (when enabled):
 - Device hash (salted SHA-256 — per-user random salt stored locally, not reversible)
 - RTK version, OS, architecture
 - Command count (last 24h) and top command names (e.g. "git", "cargo" — no arguments, no file paths)
@@ -482,19 +483,17 @@ RTK collects **anonymous, aggregate usage metrics** once per day, **enabled by d
 
 **What is NOT collected:** source code, file paths, command arguments, secrets, environment variables, or any personally identifiable information.
 
-**Opt-out** (any of these):
-```bash
-# Environment variable
-export RTK_TELEMETRY_DISABLED=1
-
-# Or in config file (~/.config/rtk/config.toml)
+**Opt-in** (in `~/.config/rtk/config.toml`):
+```toml
 [telemetry]
-enabled = false
+enabled = true
 ```
+
+**Opt-out** (even after opt-in): set `enabled = false` or use `RTK_TELEMETRY_DISABLED=1`.
 
 ## Contributing
 
-Contributions welcome! Please open an issue or PR on [GitHub](https://github.com/rtk-ai/rtk).
+Contributions welcome! Please open an issue or PR on [GitHub](https://github.com/hexamind-dev/rtk).
 
 Join the community on [Discord](https://discord.gg/RySmvNF5kF).
 

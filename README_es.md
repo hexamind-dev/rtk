@@ -7,8 +7,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/rtk-ai/rtk/actions"><img src="https://github.com/rtk-ai/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
-  <a href="https://github.com/rtk-ai/rtk/releases"><img src="https://img.shields.io/github/v/release/rtk-ai/rtk" alt="Release"></a>
+  <a href="https://github.com/hexamind-dev/rtk/actions"><img src="https://github.com/hexamind-dev/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
+  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/hexamind-dev/rtk" alt="Release"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
   <a href="https://discord.gg/RySmvNF5kF"><img src="https://img.shields.io/discord/1478373640461488159?label=Discord&logo=discord" alt="Discord"></a>
   <a href="https://formulae.brew.sh/formula/rtk"><img src="https://img.shields.io/homebrew/v/rtk" alt="Homebrew"></a>
@@ -28,7 +28,8 @@
   <a href="README_zh.md">中文</a> &bull;
   <a href="README_ja.md">日本語</a> &bull;
   <a href="README_ko.md">한국어</a> &bull;
-  <a href="README_es.md">Espanol</a>
+  <a href="README_es.md">Espanol</a> &bull;
+  <a href="README_ptbr.md">Português (Brasil)</a>
 </p>
 
 ---
@@ -57,13 +58,13 @@ brew install rtk
 ### Instalacion rapida (Linux/macOS)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/hexamind-dev/rtk/refs/heads/master/install.sh | sh
 ```
 
 ### Cargo
 
 ```bash
-cargo install --git https://github.com/rtk-ai/rtk
+cargo install --git https://github.com/hexamind-dev/rtk
 ```
 
 ### Verificacion
@@ -150,7 +151,7 @@ rtk discover                    # Descubrir ahorros perdidos
 
 ## Contribuir
 
-Las contribuciones son bienvenidas. Abre un issue o PR en [GitHub](https://github.com/rtk-ai/rtk).
+Las contribuciones son bienvenidas. Abre un issue o PR en [GitHub](https://github.com/hexamind-dev/rtk).
 
 Unete a la comunidad en [Discord](https://discord.gg/RySmvNF5kF).
 
