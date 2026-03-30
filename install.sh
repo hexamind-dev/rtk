@@ -1,10 +1,14 @@
 #!/usr/bin/env sh
-# rtk installer - https://github.com/rtk-ai/rtk
-# Usage: curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh
+# rtk installer — this fork (Rust Token Killer)
+# Usage:
+#   curl -fsSL https://raw.githubusercontent.com/hexamind-dev/rtk/refs/heads/master/install.sh | sh
+#
+# Override GitHub org/repo: RTK_REPO=owner/name
+# Override install dir: RTK_INSTALL_DIR
 
 set -e
 
-REPO="rtk-ai/rtk"
+REPO="${RTK_REPO:-hexamind-dev/rtk}"
 BINARY_NAME="rtk"
 INSTALL_DIR="${RTK_INSTALL_DIR:-$HOME/.local/bin}"
 
@@ -108,7 +112,7 @@ verify() {
 }
 
 main() {
-    info "Installing $BINARY_NAME..."
+    info "Installing $BINARY_NAME from github.com/${REPO}..."
 
     detect_os
     detect_arch
