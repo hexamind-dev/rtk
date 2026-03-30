@@ -1322,7 +1322,7 @@ max_files = 20              # Rotation : garder les N derniers fichiers
 # directory = "/custom/tee/path"  # Chemin personnalise (optionnel)
 
 [telemetry]
-enabled = true              # Telemetrie anonyme (1 ping/jour, opt-out possible)
+enabled = false             # Telemetrie : opt-in (true) ; ping max 1/jour si URL compilee
 
 [hooks]
 exclude_commands = []       # Commandes a exclure de la recriture automatique
@@ -1333,7 +1333,7 @@ exclude_commands = []       # Commandes a exclure de la recriture automatique
 | Variable | Description |
 |----------|-------------|
 | `RTK_TEE_DIR` | Surcharge le repertoire tee |
-| `RTK_TELEMETRY_DISABLED=1` | Desactiver la telemetrie |
+| `RTK_TELEMETRY_DISABLED=1` | Desactiver la telemetrie (meme si enabled = true) |
 | `RTK_HOOK_AUDIT=1` | Activer l'audit du hook |
 | `SKIP_ENV_VALIDATION=1` | Desactiver la validation d'env (Next.js, etc.) |
 
@@ -1371,16 +1371,21 @@ FAILED: 2/15 tests
 
 ## Telemetrie
 
-RTK envoie un ping anonyme une fois par jour (23h d'intervalle) pour des statistiques d'utilisation.
+Par defaut, la telemetrie est **desactivee**. Un ping anonyme (intervalle ~23h) n'est envoye que si `[telemetry] enabled = true` dans `config.toml` et que le binaire a ete compile avec une URL de telemetrie.
 
-**Donnees envoyees :** hash de device, version, OS, architecture, nombre de commandes/24h, top commandes, pourcentage d'economies.
+**Donnees envoyees** (si active) : hash de device, version, OS, architecture, nombre de commandes/24h, top commandes, pourcentage d'economies.
+
+**Activer :**
+```toml
+[telemetry]
+enabled = true
+```
 
 **Desactiver :**
 ```bash
-# Via variable d'environnement
 export RTK_TELEMETRY_DISABLED=1
-
-# Via config.toml
+```
+```toml
 [telemetry]
 enabled = false
 ```

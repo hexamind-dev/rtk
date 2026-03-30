@@ -79,7 +79,7 @@ max_file_size = 1048576
 directory = "/custom/tee/dir"
 
 [telemetry]
-enabled = true
+enabled = false  # set true to opt in (requires RTK_TELEMETRY_URL at build time)
 
 [hooks]
 exclude_commands = ["curl", "playwright"]  # Never auto-rewrite these
