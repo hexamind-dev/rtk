@@ -89,15 +89,9 @@ impl Default for FilterConfig {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct TelemetryConfig {
     pub enabled: bool,
-}
-
-impl Default for TelemetryConfig {
-    fn default() -> Self {
-        Self { enabled: false }
-    }
 }
 
 #[derive(Debug, Serialize, Deserialize)]
