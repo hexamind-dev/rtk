@@ -71,6 +71,7 @@ pub const PATTERNS: &[&str] = &[
     r"^markdownlint\b",
     r"^mix\s+(compile|format)(\s|$)",
     r"^mvn\s+(compile|package|clean|install)\b",
+    r"^(?:\\./)?gradlew\b|^gradle\b",
     r"^ping\b",
     r"^pio\s+run",
     r"^poetry\s+(install|lock|update)\b",
@@ -513,6 +514,14 @@ pub const RULES: &[RtkRule] = &[
     RtkRule {
         rtk_cmd: "rtk mvn",
         rewrite_prefixes: &["mvn"],
+        category: "Build",
+        savings_pct: 70.0,
+        subcmd_savings: &[],
+        subcmd_status: &[],
+    },
+    RtkRule {
+        rtk_cmd: "rtk gradle",
+        rewrite_prefixes: &["./gradlew", "gradlew", "gradle"],
         category: "Build",
         savings_pct: 70.0,
         subcmd_savings: &[],

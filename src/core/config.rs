@@ -139,7 +139,7 @@ pub struct GradleConfig {
     pub drop_frame_packages: Vec<String>,
 }
 
-fn default_drop_frame_packages() -> Vec<String> {
+pub fn default_drop_frame_packages() -> Vec<String> {
     vec![
         "org.gradle".to_string(),
         "org.junit.platform".to_string(),
