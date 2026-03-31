@@ -1,0 +1,8 @@
+---
+source: src/gradle/test_filter.rs
+expression: output
+---
+9 tests completed, 0 failed
+
+BUILD SUCCESSFUL in 8s
+12 actionable tasks: 1 executed, 11 up-to-date

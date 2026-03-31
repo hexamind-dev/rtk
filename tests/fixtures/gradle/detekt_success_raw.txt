@@ -1,0 +1,20 @@
+Starting Gradle Daemon...
+Gradle Daemon started in 1854 ms
+> Configure project :
+> Configure project :app-payments
+Calculating task graph as no cached configuration is available for tasks: :app-payments:detekt
+> Task :app-common:compileKotlin UP-TO-DATE
+> Task :app-common:classes UP-TO-DATE
+> Task :app-common:jar UP-TO-DATE
+> Task :app-payments:compileKotlin UP-TO-DATE
+> Task :app-payments:classes UP-TO-DATE
+> Task :app-payments:detekt
+Loading baseline from /Users/developer/backend/app-payments/detekt-baseline.xml
+Comparing against baseline...
+Publishing build scan...
+https://scans.gradle.com/s/abc123xyz
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+For more on this, please refer to https://docs.gradle.org/8.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 4s
+6 actionable tasks: 1 executed, 5 up-to-date
