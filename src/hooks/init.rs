@@ -15,8 +15,8 @@ use super::constants::{
     BEFORE_TOOL_KEY, CLAUDE_DIR, CLAUDE_HOOK_COMMAND, CODEX_DIR, CURSOR_HOOK_COMMAND,
     GEMINI_HOOK_FILE, HERMES_DIR, HERMES_PLUGINS_SUBDIR, HERMES_PLUGIN_INIT_FILE,
     HERMES_PLUGIN_MANIFEST_FILE, HERMES_PLUGIN_NAME, HOOKS_JSON, HOOKS_SUBDIR,
-    PI_CODING_AGENT_DIR_ENV, PI_DIR, PI_EXTENSIONS_SUBDIR, PI_PLUGIN_FILE, PRE_TOOL_USE_KEY,
-    REWRITE_HOOK_FILE, SETTINGS_JSON,
+    PI_CODING_AGENT_DIR_ENV, PI_DIR, PI_EXTENSIONS_SUBDIR, PI_LOCAL_DIR, PI_PLUGIN_FILE,
+    PRE_TOOL_USE_KEY, REWRITE_HOOK_FILE, SETTINGS_JSON,
 };
 use super::integrity;
 
@@ -650,38 +650,7 @@ pub fn uninstall(
     }
 
     if pi {
-        let plugin_path = pi_plugin_path_for_scope(global)?;
-        let mut removed: Vec<String> = Vec::new();
-
-        if plugin_path.exists() {
-            if dry_run {
-                println!(
-                    "[dry-run] would remove Pi extension: {}",
-                    plugin_path.display()
-                );
-            } else {
-                // nosemgrep: filesystem-deletion -- Pi uninstall removes only the RTK-managed extension file.
-                fs::remove_file(&plugin_path).with_context(|| {
-                    format!("Failed to remove Pi extension: {}", plugin_path.display())
-                })?;
-                if verbose > 0 {
-                    eprintln!("Removed Pi extension: {}", plugin_path.display());
-                }
-                removed.push(format!("Pi extension: {}", plugin_path.display()));
-            }
-        }
-
-        if dry_run {
-            print_dry_run_footer();
-        } else if !removed.is_empty() {
-            println!("RTK uninstalled (Pi):");
-            for item in &removed {
-                println!("  - {}", item);
-            }
-            println!("\nRestart pi to apply changes.");
-        } else {
-            println!("RTK Pi extension was not installed (nothing to remove)");
-        }
+        uninstall_pi(global, ctx)?;
         return Ok(());
     }
 
@@ -2816,7 +2785,7 @@ fn pi_plugin_path_for_scope(global: bool) -> Result<PathBuf> {
     if global {
         Ok(pi_plugin_path(&resolve_pi_dir()?))
     } else {
-        Ok(PathBuf::from(".pi")
+        Ok(PathBuf::from(PI_LOCAL_DIR)
             .join(PI_EXTENSIONS_SUBDIR)
             .join(PI_PLUGIN_FILE))
     }
@@ -2838,6 +2807,46 @@ fn ensure_pi_extensions_dir(parent: &Path, name: &str, ctx: InitContext) -> Resu
     } else {
         fs::create_dir_all(parent)
             .with_context(|| format!("Failed to create {}: {}", name, parent.display()))?;
+    }
+    Ok(())
+}
+
+/// Uninstall Pi extension for the given scope.
+/// Mirrors `uninstall_codex` / `uninstall_hermes`: extracted from the dispatcher
+/// so it can be tested and reasoned about independently.
+fn uninstall_pi(global: bool, ctx: InitContext) -> Result<()> {
+    let InitContext { verbose, dry_run } = ctx;
+    let plugin_path = pi_plugin_path_for_scope(global)?;
+    let mut removed: Vec<String> = Vec::new();
+
+    if plugin_path.exists() {
+        if dry_run {
+            println!(
+                "[dry-run] would remove Pi extension: {}",
+                plugin_path.display()
+            );
+        } else {
+            // nosemgrep: filesystem-deletion -- Pi uninstall removes only the RTK-managed extension file.
+            fs::remove_file(&plugin_path).with_context(|| {
+                format!("Failed to remove Pi extension: {}", plugin_path.display())
+            })?;
+            if verbose > 0 {
+                eprintln!("Removed Pi extension: {}", plugin_path.display());
+            }
+            removed.push(format!("Pi extension: {}", plugin_path.display()));
+        }
+    }
+
+    if dry_run {
+        print_dry_run_footer();
+    } else if !removed.is_empty() {
+        println!("RTK uninstalled (Pi):");
+        for item in &removed {
+            println!("  - {}", item);
+        }
+        println!("\nRestart pi to apply changes.");
+    } else {
+        println!("RTK Pi extension was not installed (nothing to remove)");
     }
     Ok(())
 }
@@ -5988,7 +5997,7 @@ mod tests {
         let path = pi_plugin_path_for_scope(false).unwrap();
         assert_eq!(
             path,
-            PathBuf::from(".pi")
+            PathBuf::from(PI_LOCAL_DIR)
                 .join(PI_EXTENSIONS_SUBDIR)
                 .join(PI_PLUGIN_FILE)
         );
