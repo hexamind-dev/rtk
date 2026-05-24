@@ -1,0 +1,22 @@
+---
+source: src/gradle/compile.rs
+expression: output
+---
+> Task :backend:app-payments:compileKotlin FAILED
+w: app-payments/src/main/kotlin/com/example/payments/internal/ProcessorFactory.kt:12:5 'inject' is deprecated. Use constructor injection instead.
+e: app-payments/src/main/kotlin/com/example/payments/Foo.kt:42:5 Unresolved reference: Bar
+   val x: Bar = TODO()
+       ^
+e: app-payments/src/main/kotlin/com/example/payments/Foo.kt:55:10 Type mismatch: expected String, got Int
+   fun process(): String = computeValue()
+                           ^
+w: app-payments/src/main/kotlin/com/example/payments/legacy/OldService.kt:8:1 Parameter 'unused' is never used
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':backend:app-payments:compileKotlin'.
+> Compilation failed; see the compiler error output for details.
+
+BUILD FAILED in 5s
+6 actionable tasks: 2 executed, 4 up-to-date

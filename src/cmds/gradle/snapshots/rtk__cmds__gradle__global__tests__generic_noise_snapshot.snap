@@ -1,0 +1,6 @@
+---
+source: src/gradle/global.rs
+expression: output
+---
+BUILD SUCCESSFUL in 25s
+11 actionable tasks: 0 executed, 11 up-to-date

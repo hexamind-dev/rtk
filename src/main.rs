@@ -182,6 +182,13 @@ enum Commands {
         command: PnpmCommands,
     },
 
+    /// Gradle / Gradle Wrapper (gradlew) with compact output
+    Gradle {
+        /// Gradle arguments (tasks + flags). Prefer `./gradlew` in your project; RTK will auto-detect it.
+        #[arg(trailing_var_arg = true, allow_hyphen_values = true)]
+        args: Vec<String>,
+    },
+
     /// Run command and show only errors/warnings
     Err {
         /// Command to run
@@ -1482,6 +1489,10 @@ fn main() -> Result<()> {
             }
         },
 
+        Commands::Gradle { args } => {
+            cmds::gradle::run(&args, cli.verbose)?;
+        }
+
         Commands::Err { command } => {
             let cmd = command.join(" ");
             runner::run_err(&cmd, cli.verbose)?;
@@ -2235,6 +2246,7 @@ fn is_operational_command(cmd: &Commands) -> bool {
             | Commands::Git { .. }
             | Commands::Gh { .. }
             | Commands::Pnpm { .. }
+            | Commands::Gradle { .. }
             | Commands::Err { .. }
             | Commands::Test { .. }
             | Commands::Json { .. }

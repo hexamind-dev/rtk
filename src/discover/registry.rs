@@ -619,7 +619,10 @@ fn rewrite_segment(seg: &str, excluded: &[String]) -> Option<String> {
     // semantics than rtk read or no equivalent at all. Only `-n` (line numbers)
     // maps correctly to `rtk read -n`. Skip rewrite for any other flag.
     if cmd_part.starts_with("cat ") {
-        let args = cmd_part["cat ".len()..].trim_start();
+        let args = cmd_part
+            .strip_prefix("cat ")
+            .unwrap_or(cmd_part)
+            .trim_start();
         if args.starts_with('-') && !args.starts_with("-n ") && !args.starts_with("-n\t") {
             return None;
         }

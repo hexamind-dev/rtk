@@ -1,0 +1,16 @@
+---
+source: src/gradle/proto.rs
+expression: output
+---
+> Task :app-payments-api:generateProtos FAILED
+e: proto/payments/v1/payment.proto:42: Field number 5 has already been used in "Payment".
+e: proto/payments/v1/payment.proto:55: "PaymentStatus" is already defined in "payments.v1".
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app-payments-api:generateProtos'.
+> protoc returned exit code 1
+
+BUILD FAILED in 15s
+3 actionable tasks: 1 executed, 2 up-to-date

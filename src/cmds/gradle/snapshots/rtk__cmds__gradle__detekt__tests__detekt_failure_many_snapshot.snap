@@ -1,0 +1,28 @@
+---
+source: src/gradle/detekt.rs
+expression: output
+---
+[MagicNumber] 12 violations: This expression contains a magic number. Consider defining it as a constant.
+  app-payments/src/main/kotlin/com/example/payments/Foo.kt:42:5
+  app-payments/src/main/kotlin/com/example/payments/Bar.kt:18:9
+  app-payments/src/main/kotlin/com/example/payments/Baz.kt:7:12
+  app-payments/src/main/kotlin/com/example/payments/Qux.kt:22:3
+  app-payments/src/main/kotlin/com/example/payments/Corge.kt:55:1
+  app-payments/src/main/kotlin/com/example/payments/Grault.kt:8:14
+  app-payments/src/main/kotlin/com/example/payments/Garply.kt:31:7
+  app-payments/src/main/kotlin/com/example/payments/Waldo.kt:19:11
+  app-payments/src/main/kotlin/com/example/payments/Fred.kt:64:2
+  app-payments/src/main/kotlin/com/example/payments/Plugh.kt:3:9
+  app-payments/src/main/kotlin/com/example/payments/Xyzzy.kt:47:6
+  app-payments/src/main/kotlin/com/example/payments/Thud.kt:12:8
+app-payments/src/main/kotlin/com/example/payments/Qux.kt:1:1: [WildcardImport] Wildcard imports are not allowed.
+app-payments/src/main/kotlin/com/example/payments/Corge.kt:3:1: [WildcardImport] Wildcard imports are not allowed.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app-payments:detekt'.
+> Analysis failed with 14 weighted issues.
+
+BUILD FAILED in 4s
+6 actionable tasks: 1 executed, 5 up-to-date

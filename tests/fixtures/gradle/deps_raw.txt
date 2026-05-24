@@ -1,0 +1,65 @@
+Configuration on demand is an incubating feature.
+Parallel Configuration Cache is an incubating feature.
+Calculating task graph as no cached configuration is available for tasks: :backend:app-payments:dependencies --configuration runtimeClasspath
+VFS> Statistics since last build:
+VFS> > Stat: Executed stat() x 0. getUnixMode() x 0
+Received 13 file system events since last build while watching 1 locations
+Virtual file system retained information about 160976 files, 24516 directories and 3917 missing files since last build
+
+> Task :backend:app-payments:dependencies
+
+------------------------------------------------------------
+Project ':backend:app-payments'
+------------------------------------------------------------
+
+runtimeClasspath - Runtime classpath of null/main.
++--- org.jetbrains.kotlin:kotlin-stdlib:2.0.10
+|    +--- org.jetbrains:annotations:13.0 -> 20.1.0
+|    +--- org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0 -> 2.0.10 (c)
+|    +--- org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0 -> 2.0.10 (c)
+|    \--- org.jetbrains.kotlin:kotlin-stdlib-common:2.0.10 (c)
++--- com.google.guava:guava:31.1-jre
+|    +--- com.google.guava:failureaccess:1.0.1
+|    +--- com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava
+|    +--- com.google.code.findbugs:jsr305:3.0.2
+|    +--- org.checkerframework:checker-qual:3.12.0
+|    \--- com.google.errorprone:error_prone_annotations:2.11.0
++--- org.apache.commons:commons-lang3:3.12.0
++--- com.example.payments:payments-api:1.0.0
+|    +--- com.google.protobuf:protobuf-java:3.21.12
+|    |    \--- com.google.protobuf:protobuf-java:3.21.12 (*)
+|    +--- io.grpc:grpc-protobuf:1.54.0
+|    |    +--- io.grpc:grpc-api:1.54.0
+|    |    |    +--- io.grpc:grpc-context:1.54.0
+|    |    |    +--- com.google.code.findbugs:jsr305:3.0.2
+|    |    |    \--- com.google.errorprone:error_prone_annotations:2.14.0 -> 2.11.0
+|    |    +--- com.google.protobuf:protobuf-java:3.21.12 (*)
+|    |    +--- com.google.api.grpc:proto-google-common-protos:2.9.0
+|    |    |    +--- com.google.protobuf:protobuf-java:3.21.12 (*)
+|    |    |    \--- com.google.api:api-common:2.2.1
+|    |    |         \--- com.google.guava:guava:31.1-jre (*)
+|    |    \--- io.grpc:grpc-api:1.54.0 (*)
+|    \--- io.grpc:grpc-stub:1.54.0
+|         \--- io.grpc:grpc-api:1.54.0 (*)
++--- org.jetbrains.kotlin:kotlin-stdlib:1.9.22
+|    +--- org.jetbrains.kotlin:kotlin-stdlib-common:1.9.22
+|    \--- org.jetbrains:annotations:13.0
+\--- ch.qos.logback:logback-classic:1.4.14
+     +--- ch.qos.logback:logback-core:1.4.14
+     \--- org.slf4j:slf4j-api:2.0.7
+
+(*) - Dependency has been listed previously
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 12s
+1 actionable task: 1 executed
+Received 747 file system events during the current build while watching 1 locations
+Virtual file system retains information about 160976 files, 24516 directories and 3917 missing files until next build
+
+Publishing build scan...
+https://scans.gradle.com/s/sosb6c6chrio6
+
+Configuration cache entry stored.

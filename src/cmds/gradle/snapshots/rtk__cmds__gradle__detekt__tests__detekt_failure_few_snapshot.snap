@@ -1,0 +1,16 @@
+---
+source: src/gradle/detekt.rs
+expression: output
+---
+app-payments/src/main/kotlin/com/example/payments/Foo.kt:42:5: [MagicNumber] This expression contains a magic number. Consider defining it as a constant.
+app-payments/src/main/kotlin/com/example/payments/Baz.kt:7:12: [MaxLineLength] Line detected, which is longer than the defined maximum line length.
+app-payments/src/main/kotlin/com/example/payments/Bar.kt:10:1: [WildcardImport] Wildcard imports are not allowed.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app-payments:detekt'.
+> Analysis failed with 3 weighted issues.
+
+BUILD FAILED in 4s
+6 actionable tasks: 1 executed, 5 up-to-date
