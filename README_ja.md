@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://github.com/rtk-ai/rtk/actions"><img src="https://github.com/rtk-ai/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
   <a href="https://github.com/rtk-ai/rtk/releases"><img src="https://img.shields.io/github/v/release/rtk-ai/rtk" alt="Release"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
   <a href="https://discord.gg/RySmvNF5kF"><img src="https://img.shields.io/discord/1478373640461488159?label=Discord&logo=discord" alt="Discord"></a>
   <a href="https://formulae.brew.sh/formula/rtk"><img src="https://img.shields.io/homebrew/v/rtk" alt="Homebrew"></a>
 </p>
@@ -121,10 +121,11 @@ rtk git push                    # -> "ok main"
 
 ### テスト
 ```bash
-rtk test cargo test             # 失敗のみ表示（-90%）
-rtk vitest run                  # Vitest コンパクト
+rtk jest                        # Jest コンパクト
+rtk vitest                      # Vitest コンパクト
 rtk pytest                      # Python テスト（-90%）
 rtk go test                     # Go テスト（-90%）
+rtk test <cmd>                  # 失敗のみ表示（-90%）
 ```
 
 ### ビルド & リント
@@ -156,7 +157,7 @@ rtk discover                    # 見逃した節約機会を発見
 
 ## ライセンス
 
-MIT ライセンス - 詳細は [LICENSE](LICENSE) を参照。
+Apache 2.0 ライセンス - 詳細は [LICENSE](LICENSE) を参照。
 
 ## 免責事項
 

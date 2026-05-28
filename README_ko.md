@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://github.com/rtk-ai/rtk/actions"><img src="https://github.com/rtk-ai/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
   <a href="https://github.com/rtk-ai/rtk/releases"><img src="https://img.shields.io/github/v/release/rtk-ai/rtk" alt="Release"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
   <a href="https://discord.gg/RySmvNF5kF"><img src="https://img.shields.io/discord/1478373640461488159?label=Discord&logo=discord" alt="Discord"></a>
   <a href="https://formulae.brew.sh/formula/rtk"><img src="https://img.shields.io/homebrew/v/rtk" alt="Homebrew"></a>
 </p>
@@ -121,10 +121,11 @@ rtk git push                    # -> "ok main"
 
 ### 테스트
 ```bash
-rtk test cargo test             # 실패만 표시 (-90%)
-rtk vitest run                  # Vitest 컴팩트
+rtk jest                        # Jest 컴팩트
+rtk vitest                      # Vitest 컴팩트
 rtk pytest                      # Python 테스트 (-90%)
 rtk go test                     # Go 테스트 (-90%)
+rtk test <cmd>                  # 실패만 표시 (-90%)
 ```
 
 ### 빌드 & 린트
@@ -156,7 +157,7 @@ rtk discover                    # 놓친 절약 기회 발견
 
 ## 라이선스
 
-MIT 라이선스 - 자세한 내용은 [LICENSE](LICENSE)를 참조하세요.
+Apache 2.0 라이선스 - 자세한 내용은 [LICENSE](LICENSE)를 참조하세요.
 
 ## 면책 조항
 
