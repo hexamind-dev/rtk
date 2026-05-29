@@ -6639,7 +6639,10 @@ mod tests {
         let temp = TempDir::new().unwrap();
         run_copilot_global_at(temp.path(), InitContext::default()).unwrap();
         let instructions = temp.path().join(COPILOT_INSTRUCTIONS_FILE);
-        assert!(instructions.exists(), "user-level instructions must be written");
+        assert!(
+            instructions.exists(),
+            "user-level instructions must be written"
+        );
         let content = fs::read_to_string(&instructions).unwrap();
         assert!(content.contains(RTK_BLOCK_START));
         assert!(content.contains("rtk cargo test"));
@@ -6654,7 +6657,10 @@ mod tests {
         run_copilot_global_at(temp.path(), InitContext::default()).unwrap();
 
         let content = fs::read_to_string(&instructions).unwrap();
-        assert!(content.contains("Always use pnpm."), "user content must be preserved");
+        assert!(
+            content.contains("Always use pnpm."),
+            "user content must be preserved"
+        );
         assert!(content.contains(RTK_BLOCK_START));
     }
 
