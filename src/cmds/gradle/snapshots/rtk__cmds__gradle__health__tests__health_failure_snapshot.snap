@@ -1,0 +1,25 @@
+---
+source: src/gradle/health.rs
+expression: output
+---
+> Task :app-payments:projectHealth FAILED
+
+Advice for :app-payments
+
+Unused dependencies which should be removed:
+  api("com.google.guava:guava")
+
+Used transitive dependencies (should be declared directly):
+  implementation("org.apache.commons:commons-lang3")
+
+Existing dependencies which should be modified to be as indicated:
+  api("com.example.payments:payments-api") (was implementation)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app-payments:projectHealth'.
+> Dependency analysis found issues. See console output above for details.
+
+BUILD FAILED in 10s
+6 actionable tasks: 1 executed, 5 up-to-date

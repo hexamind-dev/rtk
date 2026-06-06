@@ -1,0 +1,31 @@
+Starting Gradle Daemon...
+Gradle Daemon started in 1854 ms
+> Configure project :
+> Configure project :app-payments
+Calculating task graph as no cached configuration is available for tasks: :app-payments:detekt
+> Task :app-common:compileKotlin UP-TO-DATE
+> Task :app-common:classes UP-TO-DATE
+> Task :app-common:jar UP-TO-DATE
+> Task :app-payments:compileKotlin UP-TO-DATE
+> Task :app-payments:classes UP-TO-DATE
+> Task :app-payments:detekt FAILED
+Loading baseline from /Users/developer/backend/app-payments/detekt-baseline.xml
+Comparing against baseline...
+app-payments/src/main/kotlin/com/example/payments/Foo.kt:42:5: MagicNumber - This expression contains a magic number. Consider defining it as a constant. [detekt.MagicNumber]
+app-payments/src/main/kotlin/com/example/payments/Bar.kt:10:1: WildcardImport - Wildcard imports are not allowed. [detekt.WildcardImport]
+app-payments/src/main/kotlin/com/example/payments/Baz.kt:7:12: MaxLineLength - Line detected, which is longer than the defined maximum line length. [detekt.MaxLineLength]
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app-payments:detekt'.
+> Analysis failed with 3 weighted issues.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+6 actionable tasks: 1 executed, 5 up-to-date

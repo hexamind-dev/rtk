@@ -1,0 +1,27 @@
+Starting Gradle Daemon...
+Gradle Daemon started in 1854 ms
+> Configure project :
+> Configure project :app-payments-api
+Calculating task graph as no cached configuration is available for tasks: :app-payments-api:generateProtos
+> Task :app-payments-api:extractIncludeProto UP-TO-DATE
+> Task :app-payments-api:extractProto UP-TO-DATE
+> Task :app-payments-api:generateProtos FAILED
+e: proto/payments/v1/payment.proto:42: Field number 5 has already been used in "Payment".
+e: proto/payments/v1/payment.proto:55: "PaymentStatus" is already defined in "payments.v1".
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+For more on this, please refer to https://docs.gradle.org/8.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app-payments-api:generateProtos'.
+> protoc returned exit code 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 15s
+3 actionable tasks: 1 executed, 2 up-to-date

@@ -1,0 +1,6 @@
+---
+source: src/gradle/detekt.rs
+expression: output
+---
+BUILD SUCCESSFUL in 4s
+6 actionable tasks: 1 executed, 5 up-to-date

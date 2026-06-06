@@ -1,0 +1,22 @@
+---
+source: src/gradle/batch.rs
+expression: output
+---
+--- :app-payments:test FAILED ---
+3 tests completed, 1 failed
+
+--- :app-payments:detekt FAILED ---
+
+:app-orders:test ✓
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+There were multiple build failures:
+   Execution failed for task ':app-payments:test'.
+   > There were failing tests. See the report at: file:///Users/developer/backend/app-payments/build/reports/tests/test/index.html
+   Execution failed for task ':app-payments:detekt'.
+   > Analysis failed with 1 weighted issues.
+
+BUILD FAILED in 25s
+14 actionable tasks: 3 executed, 11 up-to-date
