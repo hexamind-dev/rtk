@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/hexamind-dev/rtk/actions"><img src="https://github.com/hexamind-dev/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
-  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/rtk-ai/rtk" alt="Release"></a>
+  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/hexamind-dev/rtk" alt="Release"></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
   <a href="https://discord.gg/RySmvNF5kF"><img src="https://img.shields.io/discord/1470188214710046894?label=Discord&logo=discord" alt="Discord"></a>
   <a href="https://formulae.brew.sh/formula/rtk"><img src="https://img.shields.io/homebrew/v/rtk" alt="Homebrew"></a>
@@ -35,7 +35,7 @@
 
 ---
 
-> **Hexamind fork:** based on [rtk-ai/rtk](https://github.com/hexamind-dev/rtk) `v0.42.3`, with Hexamind-specific telemetry defaults and documentation. Upstream features and fixes are merged via `chore/merge-upstream-*` PRs.
+> **Fork Hexamind:** baseado em [rtk-ai/rtk](https://github.com/rtk-ai/rtk) `v0.42.3`, com telemetria desligada por padrão, documentação pt-BR e merges upstream via PRs `chore/merge-upstream-*`.
 
 rtk filters and compresses command outputs before they reach your LLM context. Single Rust binary, 100+ supported commands, <10ms overhead.
 
