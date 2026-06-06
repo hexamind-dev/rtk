@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://github.com/hexamind-dev/rtk/actions"><img src="https://github.com/hexamind-dev/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
   <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/hexamind-dev/rtk" alt="Release"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
   <a href="https://discord.gg/RySmvNF5kF"><img src="https://img.shields.io/discord/1470188214710046894?label=Discord&logo=discord" alt="Discord"></a>
   <a href="https://formulae.brew.sh/formula/rtk"><img src="https://img.shields.io/homebrew/v/rtk" alt="Homebrew"></a>
 </p>
@@ -17,8 +17,8 @@
 <p align="center">
   <a href="https://www.rtk-ai.app">Site</a> &bull;
   <a href="#instalação">Instalar</a> &bull;
-  <a href="docs/TROUBLESHOOTING.md">Solução de problemas</a> &bull;
-  <a href="ARCHITECTURE.md">Arquitetura</a> &bull;
+  <a href="https://www.rtk-ai.app/guide/troubleshooting">Solução de problemas</a> &bull;
+  <a href="docs/contributing/ARCHITECTURE.md">Arquitetura</a> &bull;
   <a href="https://discord.gg/RySmvNF5kF">Discord</a>
 </p>
 
@@ -29,10 +29,13 @@
   <a href="README_ja.md">日本語</a> &bull;
   <a href="README_ko.md">한국어</a> &bull;
   <a href="README_es.md">Espanol</a> &bull;
+  <a href="README_pt.md">Português</a> &bull;
   <a href="README_ptbr.md">Português (Brasil)</a>
 </p>
 
 ---
+
+> **Fork Hexamind:** baseado em [rtk-ai/rtk](https://github.com/rtk-ai/rtk) `v0.42.3`, com telemetria desligada por padrão, documentação pt-BR e merges upstream via PRs `chore/merge-upstream-*`. Inclui `rtk gradle` (filtros Faire para backend Java/Spring) além do `rtk gradlew` do upstream.
 
 O rtk filtra e comprime a saída dos comandos antes de chegar ao contexto do seu LLM. Binário único em Rust, mais de 100 comandos suportados, overhead inferior a 10 ms.
 
@@ -465,31 +468,39 @@ brew uninstall rtk           # Se instalado via Homebrew
 
 ## Documentação
 
-- **[TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** — Corrigir problemas comuns
-- **[INSTALL_ptbr.md](INSTALL_ptbr.md)** — Guia de instalação detalhado (PT-BR) · [English](INSTALL.md)
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** — Arquitetura técnica
-- **[SECURITY.md](SECURITY.md)** — Política de segurança e revisão de PRs
-- **[AUDIT_GUIDE.md](docs/AUDIT_GUIDE.md)** — Guia de análise de economia de tokens
+- **[rtk-ai.app/guide](https://www.rtk-ai.app/guide)** — guia completo (instalação, agentes, otimizações, analytics, configuração, troubleshooting)
+- **[INSTALL_ptbr.md](INSTALL_ptbr.md)** — instalação detalhada (PT-BR) · [English](INSTALL.md)
+- **[ARCHITECTURE.md](docs/contributing/ARCHITECTURE.md)** — arquitetura e decisões técnicas
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** — guia de contribuição
+- **[SECURITY.md](SECURITY.md)** — política de segurança
 
 ## Privacidade e telemetria
 
-O RTK **pode** enviar **métricas de uso anônimas e agregadas** no máximo uma vez por dia **somente se você ativar** (`[telemetry] enabled = true` em `~/.config/rtk/config.toml`) e o binário tiver sido compilado com endpoint de telemetria (`RTK_TELEMETRY_URL` na compilação). **O padrão é desligado.**
+O RTK pode coletar **métricas de uso anônimas e agregadas** no máximo uma vez por dia. A telemetria vem **desligada por padrão** e exige **consentimento explícito** (LGPD/GDPR) durante `rtk init` ou via `rtk telemetry enable`. Detalhes completos em **[docs/TELEMETRY.md](docs/TELEMETRY.md)**.
 
-**O que é coletado** (quando ativado):
-- Hash do dispositivo (SHA-256 com salt — salt aleatório por usuário armazenado localmente, não reversível)
-- Versão do RTK, SO, arquitetura
-- Contagem de comandos (últimas 24 h) e principais nomes de comando (ex.: "git", "cargo" — sem argumentos, sem caminhos de arquivo)
-- Percentual de economia de tokens
+**O que é coletado e por quê:**
 
-**O que NÃO é coletado:** código-fonte, caminhos de arquivo, argumentos de comandos, segredos, variáveis de ambiente ou qualquer dado pessoalmente identificável.
+| Categoria | Dado | Motivo |
+|-----------|------|--------|
+| Identidade | Hash do dispositivo com salt (SHA-256, não reversível) | Contar instalações sem rastrear indivíduos |
+| Ambiente | Versão RTK, SO, arquitetura, método de instalação | Priorizar plataformas e testes |
+| Uso | Contagem de comandos (24h), tokens economizados | Medir adoção e valor entregue |
+| Qualidade | Comandos passthrough, falhas de parse, filtros fracos | Melhorar filtros |
 
-**Ativar** (em `~/.config/rtk/config.toml`):
-```toml
-[telemetry]
-enabled = true
+**O que NÃO é coletado:** código-fonte, caminhos de arquivo, argumentos, segredos, variáveis de ambiente ou conteúdo de repositórios.
+
+**Gerenciar telemetria:**
+```bash
+rtk telemetry status     # Estado atual do consentimento
+rtk telemetry enable    # Dar consentimento (prompt interativo)
+rtk telemetry disable   # Retirar consentimento — para coleta imediatamente
+rtk telemetry forget     # Apagar dados locais + solicitar remoção no servidor
 ```
 
-**Desativar** (mesmo após ativar): `enabled = false` ou `RTK_TELEMETRY_DISABLED=1`.
+**Override por ambiente:**
+```bash
+export RTK_TELEMETRY_DISABLED=1   # Bloqueia telemetria independente do consentimento
+```
 
 ## Contribuindo
 
@@ -499,4 +510,4 @@ Entre na comunidade no [Discord](https://discord.gg/RySmvNF5kF).
 
 ## Licença
 
-Licença MIT — veja [LICENSE](LICENSE) para detalhes.
+Licença Apache 2.0 — veja [LICENSE](LICENSE) para detalhes.

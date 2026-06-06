@@ -2,6 +2,8 @@
 
 [English](INSTALL.md)
 
+> **Fork Hexamind (`hexamind-dev/rtk`):** release atual **0.42.3**, Rust **≥ 1.91**. Instale com `cargo install --path .` ou `install.sh` deste repositório — não use o crate homônimo do crates.io.
+
 ## Aviso de homônimos
 
 **Existem DOIS projetos completamente diferentes chamados "rtk":**
