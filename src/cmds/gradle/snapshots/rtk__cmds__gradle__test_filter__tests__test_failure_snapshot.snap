@@ -1,0 +1,54 @@
+---
+source: src/gradle/test_filter.rs
+expression: output
+---
+com.example.payments.PaymentsServiceTest > testChargeAmount FAILED
+    java.lang.AssertionError: expected:<100> but was:<50>
+        at org.junit.Assert.failNotEquals(Assert.java:834)
+        at org.junit.Assert.assertEquals(Assert.java:645)
+        at org.junit.Assert.assertEquals(Assert.java:631)
+        at com.example.payments.helpers.PaymentAssertions.assertChargeAmount(PaymentAssertions.kt:45)
+        at com.example.payments.PaymentsServiceTest.testChargeAmount(PaymentsServiceTest.kt:33)
+        at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
+        at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+        at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+        at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+        at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+        at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+        at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+        at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:106)
+    ... 7 more
+
+com.example.payments.PaymentsServiceTest > testRefundProcess FAILED
+    java.lang.IllegalStateException: Refund already processed
+        at com.example.payments.RefundService.processRefund(RefundService.kt:92)
+        at com.example.payments.PaymentsServiceTest.testRefundProcess(PaymentsServiceTest.kt:78)
+        at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
+        at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+        at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+        at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+        at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+    ... 6 more
+
+
+com.example.orders.OrderServiceTest > testCreateOrder FAILED
+    java.lang.NullPointerException: Order token is null
+        at com.example.orders.OrderServiceTest.testCreateOrder(OrderServiceTest.kt:44)
+        at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
+        at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+        at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+    ... 5 more
+
+> Task :backend:app-payments:test FAILED
+
+
+5 tests completed, 3 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':backend:app-payments:test'.
+> There were failing tests. See the report at: file://app-payments/build/reports/tests/test/index.html
+
+BUILD FAILED in 8s
+12 actionable tasks: 1 executed, 11 up-to-date

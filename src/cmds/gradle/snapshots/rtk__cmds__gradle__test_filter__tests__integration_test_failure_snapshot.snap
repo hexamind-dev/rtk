@@ -1,0 +1,40 @@
+---
+source: src/gradle/test_filter.rs
+expression: output
+---
+com.example.payments.integration.PaymentFlowIntegrationTest > testChargeWithInvalidCard FAILED
+    org.opentest4j.AssertionFailedError: Expected charge to fail with InvalidCard but got: Success
+        at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+        at org.junit.jupiter.api.Assertions.fail(Assertions.java:115)
+        at com.example.payments.integration.helpers.IntegrationAssertions.assertChargeFailure(IntegrationAssertions.kt:28)
+        at com.example.payments.integration.PaymentFlowIntegrationTest.testChargeWithInvalidCard(PaymentFlowIntegrationTest.kt:95)
+        at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
+        at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+        at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+        at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+        at org.springframework.test.context.junit.jupiter.SpringExtension.interceptTestMethod(SpringExtension.java:215)
+        at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+        at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+    ... 6 more
+        Caused by: com.example.payments.exceptions.PaymentProcessingException: Card validation failed
+            at com.example.payments.CardValidator.validate(CardValidator.kt:55)
+            at com.example.payments.ChargeService.charge(ChargeService.kt:32)
+            at com.example.payments.integration.PaymentFlowIntegrationTest.testChargeWithInvalidCard(PaymentFlowIntegrationTest.kt:90)
+            at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
+            at org.springframework.test.context.junit.jupiter.SpringExtension.interceptTestMethod(SpringExtension.java:215)
+            at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+    ... 10 more
+
+
+> Task :app-payments:integrationTest FAILED
+
+3 tests completed, 1 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app-payments:integrationTest'.
+> There were failing tests. See the report at: file://app-payments/build/reports/tests/integrationTest/index.html
+
+BUILD FAILED in 120s
+10 actionable tasks: 1 executed, 9 up-to-date

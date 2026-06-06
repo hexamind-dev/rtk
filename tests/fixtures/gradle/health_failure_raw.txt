@@ -1,0 +1,40 @@
+Starting Gradle Daemon...
+Gradle Daemon started in 1854 ms
+> Configure project :
+> Configure project :app-payments
+Calculating task graph as no cached configuration is available for tasks: :app-payments:projectHealth
+> Task :app-common:compileKotlin UP-TO-DATE
+> Task :app-common:classes UP-TO-DATE
+> Task :app-common:jar UP-TO-DATE
+> Task :app-payments:compileKotlin UP-TO-DATE
+> Task :app-payments:classes UP-TO-DATE
+> Task :app-payments:projectHealth FAILED
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+For more on this, please refer to https://docs.gradle.org/8.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they are coming from your own scripts or plugins.
+
+Advice for :app-payments
+
+Unused dependencies which should be removed:
+  api("com.google.guava:guava")
+
+Used transitive dependencies (should be declared directly):
+  implementation("org.apache.commons:commons-lang3")
+
+Existing dependencies which should be modified to be as indicated:
+  api("com.example.payments:payments-api") (was implementation)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app-payments:projectHealth'.
+> Dependency analysis found issues. See console output above for details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 10s
+6 actionable tasks: 1 executed, 5 up-to-date

@@ -1,0 +1,67 @@
+Configuration on demand is an incubating feature.
+Parallel Configuration Cache is an incubating feature.
+Calculating task graph as no cached configuration is available for tasks: :backend:app-payments:test
+VFS> Statistics since last build:
+VFS> > Stat: Executed stat() x 0. getUnixMode() x 0
+VFS> > FileHasher: Hashed 0 files (0 bytes)
+Received 18 file system events since last build while watching 1 locations
+Virtual file system retained information about 125611 files, 17699 directories and 769 missing files since last build
+
+> Task :protos:protos-core-versioning:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :protos:protos-core-currency:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :events:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :protos:protos-core-versioning:generateMainProtos UP-TO-DATE
+> Task :protos:protos-core-versioning:generateProtos UP-TO-DATE
+> Task :protos:protos-core-versioning:processResources UP-TO-DATE
+> Task :protos:protos-core-versioning:compileKotlin UP-TO-DATE
+> Task :protos:protos-core-versioning:compileJava NO-SOURCE
+> Task :protos:protos-core-versioning:classes UP-TO-DATE
+> Task :protos:protos-core-versioning:jar UP-TO-DATE
+> Task :core:core-extensions:processResources NO-SOURCE
+> Task :core:core-extensions:compileKotlin FROM-CACHE
+> Task :core:core-extensions:classes UP-TO-DATE
+> Task :core:core-extensions:jar UP-TO-DATE
+> Task :backend:app-common:kspKotlin FROM-CACHE
+> Task :backend:app-common:compileKotlin FROM-CACHE
+> Task :backend:app-common:classes UP-TO-DATE
+> Task :backend:app-common:jar
+> Task :backend:app-payments:compileKotlin UP-TO-DATE
+> Task :backend:app-payments:classes UP-TO-DATE
+> Task :backend:app-payments:compileTestKotlin UP-TO-DATE
+> Task :backend:app-payments:testClasses UP-TO-DATE
+Discovering tests in :backend:app-payments:test
+Starting test execution for :backend:app-payments:test
+Gradle Test Executor 1 started executing tests.
+> Task :backend:app-payments:test
+com.example.payments.PaymentsServiceTest > testChargeAmount PASSED
+com.example.payments.PaymentsServiceTest > testRefundAmount PASSED
+com.example.payments.PaymentsServiceTest > testPartialRefund PASSED
+com.example.payments.PaymentsServiceTest > testInvalidAmount PASSED
+com.example.payments.helpers.PaymentAssertionsTest > testAssertChargeAmount PASSED
+com.example.payments.helpers.PaymentAssertionsTest > testAssertRefundAmount PASSED
+com.example.payments.processing.ChargeProcessorTest > testProcess PASSED
+com.example.payments.processing.ChargeProcessorTest > testProcessWithRetry PASSED
+com.example.payments.processing.ChargeProcessorTest > testProcessWithFailure PASSED
+
+9 tests completed, 0 failed
+
+[Incubating] Problems report is available at: file:///Users/developer/example-backend/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 8s
+12 actionable tasks: 1 executed, 11 up-to-date
+Received 68536 file system events during the current build while watching 1 locations
+Virtual file system retains information about 158297 files, 24428 directories and 1255 missing files until next build
+VFS> Statistics during current build:
+VFS> > Stat: Executed stat() x 97. getUnixMode() x 3952
+VFS> > FileHasher: Hashed 91953 files (900658944 bytes)
+
+Publishing build scan...
+https://scans.gradle.com/s/hlnkde4iznd6m
+
+Configuration cache entry stored.

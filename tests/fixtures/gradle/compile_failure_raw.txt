@@ -1,0 +1,73 @@
+Configuration on demand is an incubating feature.
+Parallel Configuration Cache is an incubating feature.
+Calculating task graph as no cached configuration is available for tasks: :backend:app-payments:compileKotlin
+VFS> Statistics since last build:
+VFS> > Stat: Executed stat() x 0. getUnixMode() x 0
+VFS> > FileHasher: Hashed 0 files (0 bytes)
+Received 12 file system events since last build while watching 1 locations
+Virtual file system retained information about 125611 files, 17699 directories and 769 missing files since last build
+
+> Task :protos:protos-core-versioning:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :protos:protos-core-currency:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :events:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :protos:protos-core-versioning:generateMainProtos UP-TO-DATE
+> Task :protos:protos-core-versioning:generateProtos UP-TO-DATE
+> Task :protos:protos-core-versioning:processResources UP-TO-DATE
+> Task :protos:protos-core-versioning:compileKotlin UP-TO-DATE
+> Task :protos:protos-core-versioning:compileJava NO-SOURCE
+> Task :protos:protos-core-versioning:classes UP-TO-DATE
+> Task :protos:protos-core-versioning:jar UP-TO-DATE
+> Task :core:core-extensions:processResources NO-SOURCE
+> Task :core:core-extensions:compileKotlin FROM-CACHE
+> Task :core:core-extensions:classes UP-TO-DATE
+> Task :core:core-extensions:jar UP-TO-DATE
+> Task :backend:app-common:kspKotlin FROM-CACHE
+> Task :backend:app-common:compileKotlin FROM-CACHE
+> Task :backend:app-common:compileJava NO-SOURCE
+> Task :backend:app-common:classes UP-TO-DATE
+> Task :backend:app-common:jar
+> Task :backend:app-payments:kaptGenerateStubsKotlin UP-TO-DATE
+> Task :backend:app-payments:kaptKotlin UP-TO-DATE
+> Task :backend:app-payments:compileKotlin FAILED
+w: /Users/developer/example-backend/backend/app-payments/src/main/kotlin/com/example/payments/internal/ProcessorFactory.kt:12:5 'inject' is deprecated. Use constructor injection instead.
+e: /Users/developer/example-backend/backend/app-payments/src/main/kotlin/com/example/payments/Foo.kt:42:5 Unresolved reference: Bar
+   val x: Bar = TODO()
+       ^
+e: /Users/developer/example-backend/backend/app-payments/src/main/kotlin/com/example/payments/Foo.kt:55:10 Type mismatch: expected String, got Int
+   fun process(): String = computeValue()
+                           ^
+w: /Users/developer/example-backend/backend/app-payments/src/main/kotlin/com/example/payments/legacy/OldService.kt:8:1 Parameter 'unused' is never used
+Annotation processing was successful. Generated 42 files.
+Incremental compilation was started but abandoned because of changes in the classpath
+Performing full compilation as incremental compilation is not supported for this build configuration
+Resource processing completed in 250ms
+
+[Incubating] Problems report is available at: file:///Users/developer/example-backend/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':backend:app-payments:compileKotlin'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 5s
+6 actionable tasks: 2 executed, 4 up-to-date
+Received 1024 file system events during the current build while watching 1 locations
+Virtual file system retains information about 125611 files, 17699 directories and 769 missing files until next build
+
+Publishing build scan...
+https://scans.gradle.com/s/abc123xyz
+
+Configuration cache entry stored.

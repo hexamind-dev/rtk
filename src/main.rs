@@ -728,6 +728,14 @@ enum Commands {
         args: Vec<String>,
     },
 
+    /// Gradle wrapper with batch-aware compact output (unitTest, fastCheck, check, pitest)
+    #[command(name = "gradle")]
+    Gradle {
+        /// Gradle tasks and arguments (e.g., unitTest, fastCheck, check, pitest)
+        #[arg(trailing_var_arg = true, allow_hyphen_values = true)]
+        args: Vec<String>,
+    },
+
     /// Android Gradle wrapper with compact output (build, test, lint)
     #[command(name = "gradlew")]
     Gradlew {
@@ -2188,6 +2196,7 @@ fn run_cli() -> Result<i32> {
 
         Commands::GolangciLint { args } => golangci_cmd::run(&args, cli.verbose)?,
 
+        Commands::Gradle { args } => cmds::gradle::run(&args, cli.verbose)?,
         Commands::Gradlew { args } => gradlew_cmd::run(&args, cli.verbose)?,
 
         Commands::HookAudit { since } => {

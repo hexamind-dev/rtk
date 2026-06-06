@@ -3012,7 +3012,7 @@ mod tests {
         assert!(matches!(
             classify_command("./gradlew assembleDebug"),
             Classification::Supported {
-                rtk_equivalent: "rtk gradlew",
+                rtk_equivalent: "rtk gradle",
                 ..
             }
         ));
@@ -3023,7 +3023,7 @@ mod tests {
         assert!(matches!(
             classify_command("gradlew build"),
             Classification::Supported {
-                rtk_equivalent: "rtk gradlew",
+                rtk_equivalent: "rtk gradle",
                 ..
             }
         ));
@@ -3034,7 +3034,7 @@ mod tests {
         assert!(matches!(
             classify_command("gradlew.bat clean"),
             Classification::Supported {
-                rtk_equivalent: "rtk gradlew",
+                rtk_equivalent: "rtk gradle",
                 ..
             }
         ));
@@ -3045,7 +3045,7 @@ mod tests {
         assert!(matches!(
             classify_command("gradle build"),
             Classification::Supported {
-                rtk_equivalent: "rtk gradlew",
+                rtk_equivalent: "rtk gradle",
                 ..
             }
         ));
@@ -3055,7 +3055,7 @@ mod tests {
     fn test_rewrite_gradlew() {
         assert_eq!(
             rewrite_command_no_prefixes("./gradlew assembleDebug", &[]),
-            Some("rtk gradlew assembleDebug".into())
+            Some("rtk gradle assembleDebug".into())
         );
     }
 
@@ -3063,7 +3063,7 @@ mod tests {
     fn test_rewrite_gradlew_no_dot_slash() {
         assert_eq!(
             rewrite_command_no_prefixes("gradlew build", &[]),
-            Some("rtk gradlew build".into())
+            Some("rtk gradle build".into())
         );
     }
 
@@ -3071,7 +3071,7 @@ mod tests {
     fn test_rewrite_gradlew_bat() {
         assert_eq!(
             rewrite_command_no_prefixes("gradlew.bat clean", &[]),
-            Some("rtk gradlew clean".into())
+            Some("rtk gradle clean".into())
         );
     }
 
@@ -3079,7 +3079,7 @@ mod tests {
     fn test_rewrite_gradle() {
         assert_eq!(
             rewrite_command_no_prefixes("gradle build", &[]),
-            Some("rtk gradlew build".into())
+            Some("rtk gradle build".into())
         );
     }
 
@@ -3088,7 +3088,7 @@ mod tests {
         assert_eq!(
             classify_command("./gradlew test"),
             Classification::Supported {
-                rtk_equivalent: "rtk gradlew",
+                rtk_equivalent: "rtk gradle",
                 category: "Build",
                 estimated_savings_pct: 90.0,
                 status: RtkStatus::Existing,
