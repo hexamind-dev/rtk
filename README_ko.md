@@ -8,8 +8,8 @@
 
 <p align="center">
   <a href="https://github.com/hexamind-dev/rtk/actions"><img src="https://github.com/hexamind-dev/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
-  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/hexamind-dev/rtk" alt="Release"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/rtk-ai/rtk" alt="Release"></a>
+  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
   <a href="https://discord.gg/RySmvNF5kF"><img src="https://img.shields.io/discord/1478373640461488159?label=Discord&logo=discord" alt="Discord"></a>
   <a href="https://formulae.brew.sh/formula/rtk"><img src="https://img.shields.io/homebrew/v/rtk" alt="Homebrew"></a>
 </p>
@@ -18,7 +18,7 @@
   <a href="https://www.rtk-ai.app">웹사이트</a> &bull;
   <a href="#설치">설치</a> &bull;
   <a href="docs/TROUBLESHOOTING.md">문제 해결</a> &bull;
-  <a href="ARCHITECTURE.md">아키텍처</a> &bull;
+  <a href="docs/contributing/ARCHITECTURE.md">아키텍처</a> &bull;
   <a href="https://discord.gg/RySmvNF5kF">Discord</a>
 </p>
 
@@ -28,8 +28,7 @@
   <a href="README_zh.md">中文</a> &bull;
   <a href="README_ja.md">日本語</a> &bull;
   <a href="README_ko.md">한국어</a> &bull;
-  <a href="README_es.md">Espanol</a> &bull;
-  <a href="README_ptbr.md">Português (Brasil)</a>
+  <a href="README_es.md">Espanol</a>
 </p>
 
 ---
@@ -122,10 +121,11 @@ rtk git push                    # -> "ok main"
 
 ### 테스트
 ```bash
-rtk test cargo test             # 실패만 표시 (-90%)
-rtk vitest run                  # Vitest 컴팩트
+rtk jest                        # Jest 컴팩트
+rtk vitest                      # Vitest 컴팩트
 rtk pytest                      # Python 테스트 (-90%)
 rtk go test                     # Go 테스트 (-90%)
+rtk test <cmd>                  # 실패만 표시 (-90%)
 ```
 
 ### 빌드 & 린트
@@ -147,7 +147,7 @@ rtk discover                    # 놓친 절약 기회 발견
 
 - **[TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** - 일반적인 문제 해결
 - **[INSTALL.md](INSTALL.md)** - 상세 설치 가이드
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - 기술 아키텍처
+- **[ARCHITECTURE.md](docs/contributing/ARCHITECTURE.md)** - 기술 아키텍처
 
 ## 기여
 
@@ -157,4 +157,8 @@ rtk discover                    # 놓친 절약 기회 발견
 
 ## 라이선스
 
-MIT 라이선스 - 자세한 내용은 [LICENSE](LICENSE)를 참조하세요.
+Apache 2.0 라이선스 - 자세한 내용은 [LICENSE](LICENSE)를 참조하세요.
+
+## 면책 조항
+
+자세한 내용은 [DISCLAIMER.md](DISCLAIMER.md)를 참조하세요.
