@@ -8,8 +8,8 @@
 
 <p align="center">
   <a href="https://github.com/hexamind-dev/rtk/actions"><img src="https://github.com/hexamind-dev/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
-  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/hexamind-dev/rtk" alt="Release"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/rtk-ai/rtk" alt="Release"></a>
+  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
   <a href="https://discord.gg/RySmvNF5kF"><img src="https://img.shields.io/discord/1478373640461488159?label=Discord&logo=discord" alt="Discord"></a>
   <a href="https://formulae.brew.sh/formula/rtk"><img src="https://img.shields.io/homebrew/v/rtk" alt="Homebrew"></a>
 </p>
@@ -18,7 +18,7 @@
   <a href="https://www.rtk-ai.app">Site web</a> &bull;
   <a href="#installation">Installer</a> &bull;
   <a href="docs/TROUBLESHOOTING.md">Depannage</a> &bull;
-  <a href="ARCHITECTURE.md">Architecture</a> &bull;
+  <a href="docs/contributing/ARCHITECTURE.md">Architecture</a> &bull;
   <a href="https://discord.gg/RySmvNF5kF">Discord</a>
 </p>
 
@@ -28,8 +28,7 @@
   <a href="README_zh.md">中文</a> &bull;
   <a href="README_ja.md">日本語</a> &bull;
   <a href="README_ko.md">한국어</a> &bull;
-  <a href="README_es.md">Espanol</a> &bull;
-  <a href="README_ptbr.md">Português (Brasil)</a>
+  <a href="README_es.md">Espanol</a>
 </p>
 
 ---
@@ -136,11 +135,12 @@ rtk git push                    # -> "ok main"
 
 ### Tests
 ```bash
-rtk test cargo test             # Echecs uniquement (-90%)
-rtk vitest run                  # Vitest compact
+rtk jest                        # Jest compact
+rtk vitest                      # Vitest compact
 rtk pytest                      # Tests Python (-90%)
 rtk go test                     # Tests Go (-90%)
 rtk cargo test                  # Tests Cargo (-90%)
+rtk test <cmd>                  # Echecs uniquement (-90%)
 ```
 
 ### Build & Lint
@@ -185,7 +185,7 @@ mode = "failures"
 
 - **[TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** - Resoudre les problemes courants
 - **[INSTALL.md](INSTALL.md)** - Guide d'installation detaille
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Architecture technique
+- **[ARCHITECTURE.md](docs/contributing/ARCHITECTURE.md)** - Architecture technique
 
 ## Contribuer
 
@@ -195,4 +195,8 @@ Rejoignez la communaute sur [Discord](https://discord.gg/RySmvNF5kF).
 
 ## Licence
 
-Licence MIT - voir [LICENSE](LICENSE) pour les details.
+Licence Apache 2.0 - voir [LICENSE](LICENSE) pour les details.
+
+## Avertissement
+
+Voir [DISCLAIMER.md](DISCLAIMER.md).

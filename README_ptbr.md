@@ -393,7 +393,7 @@ Plugin no diretório `openclaw/`. Usa o hook `before_tool_call`, delega para `rt
 
 ### Mistral Vibe (planejado)
 
-Bloqueado no suporte upstream BeforeToolCallback ([mistral-vibe#531](https://github.com/mistralai/mistral-vibe/issues/531), [PR #533](https://github.com/mistralai/mistral-vibe/pull/533)). Acompanhado em [#800](https://github.com/hexamind-dev/rtk/issues/800).
+Bloqueado no suporte upstream BeforeToolCallback ([mistral-vibe#531](https://github.com/mistralai/mistral-vibe/issues/531), [PR #533](https://github.com/mistralai/mistral-vibe/pull/533)). Acompanhado em [#800](https://github.com/rtk-ai/rtk/issues/800).
 
 ### Comandos reescritos
 

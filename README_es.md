@@ -8,8 +8,8 @@
 
 <p align="center">
   <a href="https://github.com/hexamind-dev/rtk/actions"><img src="https://github.com/hexamind-dev/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
-  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/hexamind-dev/rtk" alt="Release"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/rtk-ai/rtk" alt="Release"></a>
+  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
   <a href="https://discord.gg/RySmvNF5kF"><img src="https://img.shields.io/discord/1478373640461488159?label=Discord&logo=discord" alt="Discord"></a>
   <a href="https://formulae.brew.sh/formula/rtk"><img src="https://img.shields.io/homebrew/v/rtk" alt="Homebrew"></a>
 </p>
@@ -18,7 +18,7 @@
   <a href="https://www.rtk-ai.app">Sitio web</a> &bull;
   <a href="#instalacion">Instalar</a> &bull;
   <a href="docs/TROUBLESHOOTING.md">Solucion de problemas</a> &bull;
-  <a href="ARCHITECTURE.md">Arquitectura</a> &bull;
+  <a href="docs/contributing/ARCHITECTURE.md">Arquitectura</a> &bull;
   <a href="https://discord.gg/RySmvNF5kF">Discord</a>
 </p>
 
@@ -28,8 +28,7 @@
   <a href="README_zh.md">中文</a> &bull;
   <a href="README_ja.md">日本語</a> &bull;
   <a href="README_ko.md">한국어</a> &bull;
-  <a href="README_es.md">Espanol</a> &bull;
-  <a href="README_ptbr.md">Português (Brasil)</a>
+  <a href="README_es.md">Espanol</a>
 </p>
 
 ---
@@ -122,10 +121,12 @@ rtk git push                    # -> "ok main"
 
 ### Tests
 ```bash
-rtk test cargo test             # Solo fallos (-90%)
-rtk vitest run                  # Vitest compacto
+rtk jest                        # Jest compacto
+rtk vitest                      # Vitest compacto
 rtk pytest                      # Tests Python (-90%)
 rtk go test                     # Tests Go (-90%)
+rtk cargo test                  # Tests Rust (-90%)
+rtk test <cmd>                  # Solo fallos (-90%)
 ```
 
 ### Build & Lint
@@ -147,7 +148,7 @@ rtk discover                    # Descubrir ahorros perdidos
 
 - **[TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** - Resolver problemas comunes
 - **[INSTALL.md](INSTALL.md)** - Guia de instalacion detallada
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Arquitectura tecnica
+- **[ARCHITECTURE.md](docs/contributing/ARCHITECTURE.md)** - Arquitectura tecnica
 
 ## Contribuir
 
@@ -157,4 +158,8 @@ Unete a la comunidad en [Discord](https://discord.gg/RySmvNF5kF).
 
 ## Licencia
 
-Licencia MIT - ver [LICENSE](LICENSE) para detalles.
+Licencia Apache 2.0 - ver [LICENSE](LICENSE) para detalles.
+
+## Descargo de responsabilidad
+
+Ver [DISCLAIMER.md](DISCLAIMER.md).

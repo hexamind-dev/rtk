@@ -8,8 +8,8 @@
 
 <p align="center">
   <a href="https://github.com/hexamind-dev/rtk/actions"><img src="https://github.com/hexamind-dev/rtk/workflows/Security%20Check/badge.svg" alt="CI"></a>
-  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/hexamind-dev/rtk" alt="Release"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <a href="https://github.com/hexamind-dev/rtk/releases"><img src="https://img.shields.io/github/v/release/rtk-ai/rtk" alt="Release"></a>
+  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
   <a href="https://discord.gg/RySmvNF5kF"><img src="https://img.shields.io/discord/1478373640461488159?label=Discord&logo=discord" alt="Discord"></a>
   <a href="https://formulae.brew.sh/formula/rtk"><img src="https://img.shields.io/homebrew/v/rtk" alt="Homebrew"></a>
 </p>
@@ -18,7 +18,7 @@
   <a href="https://www.rtk-ai.app">官网</a> &bull;
   <a href="#安装">安装</a> &bull;
   <a href="docs/TROUBLESHOOTING.md">故障排除</a> &bull;
-  <a href="ARCHITECTURE.md">架构</a> &bull;
+  <a href="docs/contributing/ARCHITECTURE.md">架构</a> &bull;
   <a href="https://discord.gg/RySmvNF5kF">Discord</a>
 </p>
 
@@ -28,8 +28,7 @@
   <a href="README_zh.md">中文</a> &bull;
   <a href="README_ja.md">日本語</a> &bull;
   <a href="README_ko.md">한국어</a> &bull;
-  <a href="README_es.md">Espanol</a> &bull;
-  <a href="README_ptbr.md">Português (Brasil)</a>
+  <a href="README_es.md">Espanol</a>
 </p>
 
 ---
@@ -123,10 +122,11 @@ rtk git push                    # -> "ok main"
 
 ### 测试
 ```bash
-rtk test cargo test             # 仅显示失败（-90%）
-rtk vitest run                  # Vitest 紧凑输出
+rtk jest                        # Jest 紧凑输出
+rtk vitest                      # Vitest 紧凑输出
 rtk pytest                      # Python 测试（-90%）
 rtk go test                     # Go 测试（-90%）
+rtk test <cmd>                  # 仅显示失败（-90%）
 ```
 
 ### 构建 & 检查
@@ -155,7 +155,7 @@ rtk discover                    # 发现遗漏的节省机会
 
 - **[TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** - 解决常见问题
 - **[INSTALL.md](INSTALL.md)** - 详细安装指南
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - 技术架构
+- **[ARCHITECTURE.md](docs/contributing/ARCHITECTURE.md)** - 技术架构
 
 ## 贡献
 
@@ -165,4 +165,8 @@ rtk discover                    # 发现遗漏的节省机会
 
 ## 许可证
 
-MIT 许可证 - 详见 [LICENSE](LICENSE)。
+Apache 2.0 许可证 - 详见 [LICENSE](LICENSE)。
+
+## 免责声明
+
+详见 [DISCLAIMER.md](DISCLAIMER.md)。
